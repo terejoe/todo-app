@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>To-Do App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "styles.css">
+  </head>
+
+  <body>
+    
+    <main class="container">
+      <form class="form">
+        <div>
+          <input type="text" id="tesk-input" placeholder="Add a new Task" for="">
+        </div>
+
+        <div>
+          <button onclick="addTask()">+</button>
+        </div>
+      </form>
+
+      <div class="tasks">
+        <div class="tasks-todo">
+          <p class="task-text">Tasks to do - {num}</p>
+
+          <div class="todo-item"  id="task-item">
+            <p>To study react fundamentals</p>
+
+            <div class="item-icons">
+              <a href="#" class="icon"><img src="assets/check.svg" alt="A check icon"></a>
+              <a href="#" class="icon"><img src="assets/trash.svg" alt="A trash icon"></a>
+            </div>
+            
+          </div>
+        </div>
+        
+
+        <div class="tasks-done">
+          <p class="task-text">Done - {num}</p>
+
+          <div class="done-item"  id="task-item">
+            <p>To study react fundamentals</p>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <script src = "scripts.js"></script>
+  </body>
+</html>
