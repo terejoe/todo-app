@@ -14,8 +14,8 @@ body{
 
 
 .container {
-  max-width: 80%;
-  margin: 100px auto;
+  max-width: 100%;
+  margin: 80px auto;
   text-align: center;
 }
 
@@ -24,12 +24,13 @@ body{
 }
 
 input[type="text"] {
-  width: 380px;
-  padding: 8px;
+  width: 440px;
+  padding: 10px;
   margin-right: 10px;
   border: 1px solid #3E1671;
   border-radius: 10px;
   background-color: #0D0714;
+  color: #9E78CF;
   
 }
 
@@ -42,13 +43,18 @@ input[type="text"] {
 }
 
 button {
-  padding: 5px 12px;
+  padding: 6px 16px;
   background-color: #9E78CF;
   color: #fff;
   border: none;
   border-radius: 8px 10px;
   cursor: pointer;
   font-size: 20px;
+  font-weight: 200;
+}
+
+button:hover {
+  background-color: #3E1671;
 }
 
 .tasks{
@@ -68,10 +74,10 @@ button {
 
 .todo-item {
   margin: 10px 0;
-  padding: 20px 10px;
+  padding: 20px 12px;
   background-color: #15101C;
   border: 1px solid #15101C;
-  border-radius: 8px 10px;
+  border-radius: 10px 12px;
   color: #9E78CF;
   font-size: 14px;
   font-weight: 200;
@@ -81,10 +87,10 @@ button {
 
 .done-item{
   margin: 10px 0;
-  padding: 20px 10px;
+  padding: 20px 12px;
   background-color: #15101C;
   border: 1px solid #15101C;
-  border-radius: 8px 10px;
+  border-radius: 10px 12px;
   font-size: 14px;
   font-weight: 200;
   display: flex;
@@ -93,5 +99,6 @@ button {
 }
 
 .icon{
-  margin-right: 10px;
+  margin-right: 16px;
+  cursor: pointer;
 }
