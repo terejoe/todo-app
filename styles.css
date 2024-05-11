@@ -24,14 +24,13 @@ body{
 }
 
 input[type="text"] {
-  width: 440px;
+  width: 100%;
   padding: 10px;
   margin-right: 10px;
   border: 1px solid #3E1671;
   border-radius: 10px;
   background-color: #0D0714;
   color: #9E78CF;
-  
 }
 
 ::placeholder{
@@ -61,7 +60,7 @@ button:hover {
   margin-top: 30px;
 }
 
-.tasks-todo, .tasks-done{
+.task-todo, .task-done{
   margin-top: 50px;
 }
 
@@ -101,4 +100,30 @@ button:hover {
 .icon{
   margin-right: 16px;
   cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+@media(max-width:1200px){
+  input[type="text"] {
+    width: 100%;
+  }
+}
+
+@media(max-width:768px){
+  input[type="text"] {
+    width: 100%;
+    margin-right: 20px;
+  }
+  
+  button{
+    margin-left: 20px;
+  }
+  .icon{
+    width: 5px;
+    height: 5px;
+  }
 }
