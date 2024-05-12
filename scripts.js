@@ -1,10 +1,19 @@
 //Get Elements from the DOM 
 let taskInput = document.getElementById("task-input");
 let addItemBtn = document.getElementById("add-item");
-let tasksList = document.getElementById(".task-list");
-let tasksTodo = document.querySelector(".task-todo");
-let item =[];
-let num = item.length;
+
+let tasksList = document.getElementById("task-list");
+let tasksDone = document.querySelector(".task-done");
+
+let taskCount = document.getElementById("task-count");
+let doneCount = document.getElementById("done-count")
+
+let tasksTodoCount = 0;
+let tasksDoneCount = 0;
+
+//Create Elememts
+// let parag =document.createElement("p");
+// parag.classList.add("task-text")
 
 //Handle form submit
 function addTask() {
@@ -12,32 +21,64 @@ function addTask() {
     event.preventDefault();
 
     if(taskInput.value.trim() !== ""){
+      tasksTodoCount++;
+      taskCount.innerHTML = `Tasks - ${tasksTodoCount}`;
+     
 
-      tasksTodo.insertAdjacentHTML("beforeend", ` 
-        <p class="task-text">Tasks to do - ${num}</p>
-
+      tasksList.insertAdjacentHTML("beforeend", ` 
         <div class="todo-item">
           <p>${taskInput.value}</p>
 
           <div class="item-icons">
-            <a class="icon"><img src="assets/check.svg" alt="A check icon"></a>
-            <a class="icon"><img src="assets/trash.svg" alt="A trash icon"></a>
+            <a class="icon"><img src="assets/check.svg" id="check" alt="A check icon"></a>
+            <a class="icon"><img src="assets/trash.svg" id="delete" alt="A trash icon"></a>
           </div>
         
       </div>`);
     }
-    item.push(taskInput.value);
-    num++;
+   
     taskInput.value = "";
   });
-  
-  
-  // parag.appendChild(text);
-  // tasksTodo.appendChild(parag)
-  console.log(taskInput.value);
-  console.log(num);
-  console.log(item)
-  console.log(tasksTodo)
+
 }
-addTask()
+addTask();
+
+
+//Delete the task
+tasksList.addEventListener('click', (e) =>{
+
+  if(e.target.id === 'delete') {
+    const todoItem = e.target.parentElement.parentElement.parentElement;    
+    tasksList.removeChild(todoItem);
+    console.log(todoItem)
+    tasksTodoCount--;
+    taskCount.innerHTML = `Tasks - ${tasksTodoCount}`;
+
+    
+  }
+})
+
+//Check tick the task
+tasksList.addEventListener('click', (e) =>{
+  if(e.target.id === 'check'){
+    tasksList.removeChild(tasksList.lastElementChild);
+    tasksDoneCount++;
+    tasksTodoCount--;
+
+    doneCount.innerHTML = `Done - ${tasksDoneCount}`;
+    
+    tasksDone.insertAdjacentHTML("beforeend", ` 
+        <div class="todo-item">
+          <p>${taskInput.value}</p>
+
+          <div class="item-icons">
+            <a class="icon"><img src="assets/check.svg" id="check" alt="A check icon"></a>
+          </div>
+        
+      </div>`);
+    
+  }
+})
+
+
 
