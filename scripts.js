@@ -74,9 +74,8 @@ tasksList.addEventListener('click', (e) =>{
 //Revert the task
 tasksDone.addEventListener('click', (e) =>{
   if(e.target.id === 'revert'){
-    const todoItem = e.target.parentElement.parentElement.parentElement;
-    console.log(todoItem)    
-    // tasksDone.removeChild(todoItem);
+    const todoItem = e.target.parentElement.parentElement.parentElement;  
+    tasksDone.remove(todoItem.children[0].textContent);
     tasksDoneCount--;
     doneCount.innerHTML = `Done - ${tasksDoneCount}`;
 
@@ -92,7 +91,6 @@ tasksDone.addEventListener('click', (e) =>{
       </div>`);
     tasksTodoCount++;
     taskCount.innerHTML = `Tasks - ${tasksTodoCount}`;
-
   }
 })
 
