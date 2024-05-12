@@ -50,7 +50,6 @@ tasksList.addEventListener('click', (e) =>{
   if(e.target.id === 'delete') {
     const todoItem = e.target.parentElement.parentElement.parentElement;    
     tasksList.removeChild(todoItem);
-    console.log(todoItem)
     tasksTodoCount--;
     taskCount.innerHTML = `Tasks - ${tasksTodoCount}`;
 
@@ -61,22 +60,19 @@ tasksList.addEventListener('click', (e) =>{
 //Check tick the task
 tasksList.addEventListener('click', (e) =>{
   if(e.target.id === 'check'){
-    tasksList.removeChild(tasksList.lastElementChild);
-    tasksDoneCount++;
+    const todoItem = e.target.parentElement.parentElement.parentElement;    
+    tasksList.removeChild(todoItem);
     tasksTodoCount--;
+    taskCount.innerHTML = `Tasks - ${tasksTodoCount}`;
 
+    tasksDoneCount++;
     doneCount.innerHTML = `Done - ${tasksDoneCount}`;
+
     
     tasksDone.insertAdjacentHTML("beforeend", ` 
-        <div class="todo-item">
-          <p>${taskInput.value}</p>
-
-          <div class="item-icons">
-            <a class="icon"><img src="assets/check.svg" id="check" alt="A check icon"></a>
-          </div>
-        
-      </div>`);
-    
+      <div class="done-item"  id="task-item">
+      <p class="completed">${todoItem.children[0].textContent}</p>
+    </div>`);
   }
 })
 

@@ -103,8 +103,9 @@ button:hover {
 }
 
 .completed {
-  text-decoration: line-through;
-  color: #888;
+  text-decoration: line-through #78CFB0 2px;
+  color:#78CFB0;
+  word-spacing: 2px;
 }
 
 @media(max-width:1200px){
