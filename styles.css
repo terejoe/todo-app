@@ -102,6 +102,13 @@ button:hover {
   cursor: pointer;
 }
 
+.revert-icon{
+  color: #78CFB0;
+  width: 20px;
+  height: 25px;
+  cursor: pointer;
+}
+
 .completed {
   text-decoration: line-through #78CFB0 2px;
   color:#78CFB0;

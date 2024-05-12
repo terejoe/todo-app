@@ -11,10 +11,6 @@ let doneCount = document.getElementById("done-count")
 let tasksTodoCount = 0;
 let tasksDoneCount = 0;
 
-//Create Elememts
-// let parag =document.createElement("p");
-// parag.classList.add("task-text")
-
 //Handle form submit
 function addTask() {
   addItemBtn.addEventListener("click", (event) =>{
@@ -52,8 +48,6 @@ tasksList.addEventListener('click', (e) =>{
     tasksList.removeChild(todoItem);
     tasksTodoCount--;
     taskCount.innerHTML = `Tasks - ${tasksTodoCount}`;
-
-    
   }
 })
 
@@ -70,9 +64,35 @@ tasksList.addEventListener('click', (e) =>{
 
     
     tasksDone.insertAdjacentHTML("beforeend", ` 
-      <div class="done-item"  id="task-item">
-      <p class="completed">${todoItem.children[0].textContent}</p>
+      <div class="done-item">
+        <p class="completed">${todoItem.children[0].textContent}</p>
+        <a class="revert-icon"><img src="assets/revert.svg" id="revert" alt="A revert icon"></a>
     </div>`);
+  }
+})
+
+//Revert the task
+tasksDone.addEventListener('click', (e) =>{
+  if(e.target.id === 'revert'){
+    const todoItem = e.target.parentElement.parentElement.parentElement;
+    console.log(todoItem)    
+    // tasksDone.removeChild(todoItem);
+    tasksDoneCount--;
+    doneCount.innerHTML = `Done - ${tasksDoneCount}`;
+
+    tasksList.insertAdjacentHTML("beforeend", ` 
+      <div class="todo-item">
+        <p>${todoItem.children[0].textContent}</p>
+
+        <div class="item-icons">
+          <a class="icon"><img src="assets/check.svg" id="check" alt="A check icon"></a>
+          <a class="icon"><img src="assets/trash.svg" id="delete" alt="A trash icon"></a>
+        </div>
+        
+      </div>`);
+    tasksTodoCount++;
+    taskCount.innerHTML = `Tasks - ${tasksTodoCount}`;
+
   }
 })
 
