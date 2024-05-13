@@ -76,9 +76,10 @@ tasksDone.addEventListener('click', (e) =>{
   if(e.target.id === 'revert'){
     // const todoItem = e.target.parentElement.parentElement.parentElement;  
     const completedTask = e.target.parentElement.parentElement;
+    completedTask.remove();
     tasksDoneCount--;
     doneCount.innerHTML = `Done - ${tasksDoneCount}`;
-    completedTask.remove();
+    
 
     tasksList.insertAdjacentHTML("beforeend", ` 
       <div class="todo-item">
