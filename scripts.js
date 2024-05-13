@@ -3,7 +3,7 @@ let taskInput = document.getElementById("task-input");
 let addItemBtn = document.getElementById("add-item");
 
 let tasksList = document.getElementById("task-list");
-let tasksDone = document.querySelector(".task-done");
+let tasksDone = document.getElementById("done-list");
 
 let taskCount = document.getElementById("task-count");
 let doneCount = document.getElementById("done-count")
@@ -74,14 +74,15 @@ tasksList.addEventListener('click', (e) =>{
 //Revert the task
 tasksDone.addEventListener('click', (e) =>{
   if(e.target.id === 'revert'){
-    const todoItem = e.target.parentElement.parentElement.parentElement;  
-    tasksDone.remove(todoItem.children[0].textContent);
+    // const todoItem = e.target.parentElement.parentElement.parentElement;  
+    const completedTask = e.target.parentElement.parentElement;
     tasksDoneCount--;
     doneCount.innerHTML = `Done - ${tasksDoneCount}`;
+    completedTask.remove();
 
     tasksList.insertAdjacentHTML("beforeend", ` 
       <div class="todo-item">
-        <p>${todoItem.children[0].textContent}</p>
+        <p>${completedTask.children[0].textContent}</p>
 
         <div class="item-icons">
           <a class="icon"><img src="assets/check.svg" id="check" alt="A check icon"></a>
